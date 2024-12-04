@@ -17,4 +17,4 @@ pydocstyle:
 	@python3 -m pydocstyle src
 
 .PHONY:
-validate: black pylint mypy
+validate: black pylint pydocstyle mypy

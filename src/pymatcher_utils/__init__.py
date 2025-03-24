@@ -25,6 +25,8 @@ __all__ = [
     "All",
     "Eq",
     "NotEq",
+    "Is",
+    "IsNot",
     "IsInstance",
     "Called",
     "NotCalled",

@@ -102,6 +102,60 @@ class NotEq(Matcher):
         return True
 
 
+class Is(Matcher):
+    """Compare value for `is` equality."""
+
+    def __init__(self, value) -> None:
+        """Initialize is with an expected value.
+
+        :param value: The value to be set as the internal attribute.
+
+        """
+        self.value = value
+
+    def __eq__(self, other) -> bool:
+        """Compare the current instance with another for `is` equality.
+
+        Will handle Matcher in special way by giving equality check priority.
+
+        :param other: The object to compare with the current instance.
+        :return: True if the comparison does not raise an assertion error
+
+        """
+        if isinstance(other, Matcher) or other is ANY:
+            assert other is self.value, f"{other} is not {self.value}"
+        else:
+            assert self.value is other, f"{other} is not {self.value}"
+
+        return True
+
+class IsNot(Matcher):
+    """Compare value for `is not` equality."""
+
+    def __init__(self, value) -> None:
+        """Initialize is with an expected value.
+
+        :param value: The value to be set as the internal attribute.
+
+        """
+        self.value = value
+
+    def __eq__(self, other) -> bool:
+        """Compare the current instance with another for `is not` equality.
+
+        Will handle Matcher in special way by giving equality check priority.
+
+        :param other: The object to compare with the current instance.
+        :return: True if the comparison does not raise an assertion error
+
+        """
+        if isinstance(other, Matcher) or other is ANY:
+            assert other is not self.value, f"{other} is {self.value}"
+        else:
+            assert self.value is not other, f"{other} is {self.value}"
+
+        return True
+
 class IsInstance(Matcher):
     """Check if an object is an instance of a given type."""
 

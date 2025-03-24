@@ -1,6 +1,6 @@
 import math
 import pytest
-from pymatcher_utils import All, Eq, IsInstance, check_value
+from pymatcher_utils import All, Eq, IsInstance, check_value, Is, IsNot
 
 
 def sum_value(a: int | float, b: int | float) -> int:
@@ -30,3 +30,16 @@ def sum_value(a: int | float, b: int | float) -> int:
 def test_something(a_value, b_value, expect):
     result = sum_value(a_value, b_value)
     check_value(result, expect)
+
+
+@pytest.mark.parametrize(
+    "a_value, expect",
+    [
+        (None, Is(None)),
+        (Is(None), None),
+        (None, IsNot(True)),
+        (IsNot(None), True),
+    ]
+)
+def test_is(a_value, expect):
+    check_value(a_value, expect)

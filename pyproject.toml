@@ -90,5 +90,5 @@ ignore_errors = true
 fail_under = 80
 
 [tool.pytest.ini_options]
-addopts = ["--junitxml=junit.xml", "--cov=src", "--cov-report=term-missing" "--cov-report=xml"]
+addopts = ["--junitxml=junit.xml", "--cov=src", "--cov-report=term-missing", "--cov-report=xml"]
 pythonpath = "src"

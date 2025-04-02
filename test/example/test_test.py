@@ -1,9 +1,11 @@
 import math
+from typing import Union
+
 import pytest
 from pymatcher_utils import All, Eq, IsInstance, check_value, Is, IsNot
 
 
-def sum_value(a: int | float, b: int | float) -> int:
+def sum_value(a: Union[int, float], b: Union[int, float]) -> int:
     return int(math.floor(a + b))
 
 
@@ -39,7 +41,7 @@ def test_something(a_value, b_value, expect):
         (Is(None), None),
         (None, IsNot(True)),
         (IsNot(None), True),
-    ]
+    ],
 )
 def test_is(a_value, expect):
     check_value(a_value, expect)

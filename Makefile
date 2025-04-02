@@ -2,19 +2,23 @@
 
 .PHONY: pylint
 pylint:
-	@python3 -m pylint -j 4 src
+	@uv run -m pylint -j 4 src
 
 .PHONY: mypy
 mypy:
-	@python3 -m mypy src
+	@uv run -m mypy src
 
 .PHONY: black
 black:
-	@python3 -m black --check src
+	@uv run -m black --check src
 
 .PHONY: pydocstyle
 pydocstyle:
-	@python3 -m pydocstyle src
+	@uv run -m pydocstyle src
+
+.PHONY: pytest
+pytest:
+	@uv run pytest
 
 .PHONY:
-validate: black pylint pydocstyle mypy
+validate: black pylint pydocstyle mypy pytest

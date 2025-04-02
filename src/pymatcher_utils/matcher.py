@@ -129,6 +129,7 @@ class Is(Matcher):
 
         return True
 
+
 class IsNot(Matcher):
     """Compare value for `is not` equality."""
 
@@ -155,6 +156,7 @@ class IsNot(Matcher):
             assert self.value is not other, f"{other} is {self.value}"
 
         return True
+
 
 class IsInstance(Matcher):
     """Check if an object is an instance of a given type."""

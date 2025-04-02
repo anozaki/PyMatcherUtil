@@ -1,5 +1,7 @@
 # PyMatcherUtil 
 
+[![python](https://img.shields.io/badge/python-3.9+-blue)](https://www.python.org)
+[![codecov](https://codecov.io/gh/anozaki/PyMatcherUtil/branch/main/graph/badge.svg?token=YOUR_TOKEN)](https://codecov.io/gh/anozaki/PyMatcherUtil)
 
 ## Introduction
 

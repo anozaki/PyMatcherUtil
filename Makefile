@@ -20,5 +20,22 @@ pydocstyle:
 pytest:
 	@uv run pytest
 
+.PHONY: build
+build:
+	@uv build
+
+.PHONY: clean
+clean:
+	rm -f .coverage
+	rm -f coverage.xml
+	rm -f junit.xml
+	rm -rf dist
+	rm -rf build
+
+.PHONY: cleanall
+cleanall: clean
+	rm -rf .mypy_cache
+	rm -rf .pytest_cache
+
 .PHONY:
 validate: black pylint pydocstyle mypy pytest

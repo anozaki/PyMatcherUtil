@@ -2,6 +2,26 @@ name-template: '$NEXT_MINOR_VERSION'
 tag-template: 'v$NEXT_MINOR_VERSION'
 filter-by-commitish: true
 commitish: main
+version-resolver:
+  major:
+    labels:
+      - 'breaking-change'
+      - 'major'
+  minor:
+    labels:
+      - 'feature'
+      - 'enhancement'
+      - 'minor'
+  patch:
+    labels:
+      - 'bug'
+      - 'fix'
+      - 'documentation'
+      - 'performance'
+      - 'refactor'
+      - 'patch'
+      - 'maintenance'
+  default: patch
 autolabeler:
   - label: 'documentation'
     files:
